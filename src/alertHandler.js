@@ -8,7 +8,8 @@ function checkAndAlert(alertTarget, batteryChar, temperatureInC) {
     } else if (alertTarget === 'TO_EMAIL') {
         sendToEmail(breachType);
     } else {
-        throw new Error('Unknown alert target');
+        console.warn(`Unknown alert target: ${alertTarget}. Defaulting to log.`);
+        logAlert(breachType); // Log the alert as a fallback action
     }
 }
 
