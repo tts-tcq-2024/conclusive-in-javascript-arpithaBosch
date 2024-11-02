@@ -24,4 +24,5 @@ function classifyTemperatureBreach(coolingType, temperatureInC) {
 
 module.exports = {
     classifyTemperatureBreach,
+    getTemperatureLimits
 };
