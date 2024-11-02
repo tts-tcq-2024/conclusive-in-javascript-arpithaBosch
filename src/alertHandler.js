@@ -13,14 +13,14 @@ function sendAlert(alertTarget, breachType) {
     } else if (alertTarget === 'TO_EMAIL') {
         sendToEmail(breachType);
     } else {
-        handleUnknownAlertTarget(breachType);
+        throw new Error('Unknown alert target'); // Throw an error for unknown alert targets
     }
 }
 
 // Sends the breach status to the controller.
 function sendToController(breachType) {
     const header = 0xfeed;
-    console.log(`${header}, ${breachType}`);
+    console.log(`0x${header.toString(16)}, ${breachType}`);
 }
 
 // Sends an email alert based on the breach type.
@@ -40,12 +40,6 @@ function constructEmailMessage(breachType) {
         default:
             return 'Hi, the temperature is normal'; // For completeness
     }
-}
-
-// Handles unknown alert targets gracefully.
-function handleUnknownAlertTarget(breachType) {
-    console.warn(`Unknown alert target. Logging breach: ${breachType}`);
-    logAlert(breachType); // Log the alert as a fallback action
 }
 
 module.exports = {
