@@ -32,14 +32,13 @@ function sendToEmail(breachType) {
 
 // Constructs the email message based on the breach type.
 function constructEmailMessage(breachType) {
-    switch (breachType) {
-        case 'TOO_LOW':
-            return 'Hi, the temperature is too low';
-        case 'TOO_HIGH':
-            return 'Hi, the temperature is too high';
-        default:
-            return 'Hi, the temperature is normal'; // For completeness
-    }
+    const messages = {
+        'TOO_LOW': 'Hi, the temperature is too low',
+        'TOO_HIGH': 'Hi, the temperature is too high',
+        'NORMAL': 'Hi, the temperature is normal' // default message
+    };
+
+    return messages[breachType] || 'Hi, the temperature status is unknown'; // Fallback message
 }
 
 module.exports = {
