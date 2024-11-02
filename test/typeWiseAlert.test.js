@@ -71,7 +71,7 @@ describe("Temperature Classification and Alert Tests", () => {
     it("TC008: should send alert to controller", () => {
       checkAndAlert("TO_CONTROLLER", { coolingType: "PASSIVE_COOLING" }, 25);
       expect(consoleLogStub.calledOnce).to.be.true; // Ensure the log was called once
-      expect(consoleLogStub.calledWith("0xfeed, NORMAL")).to.be.true; // Check for specific log output
+      expect(consoleLogStub.calledWith("65261, NORMAL")).to.be.true; // Check for specific log output
     });
 
     it("TC009: should throw an error for unknown alert targets", () => {
