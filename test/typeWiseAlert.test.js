@@ -8,7 +8,8 @@ const sinon = require("sinon");
 
 describe("Temperature Classification and Alert Tests", () => {
   describe("Breach Status Tests", () => {
-    it('TC001: should return "TOO_LOW" for temperature below lower limit for PASSIVE_COOLING', () => {
+    it('TC001: should return "TOO_LOW" for temperature below lower limit for PASSIVE_COOLING',
+      () => {
       expect(classifyTemperatureBreach("PASSIVE_COOLING", -5)).to.equal(
         "TOO_LOW"
       );
@@ -17,7 +18,8 @@ describe("Temperature Classification and Alert Tests", () => {
       );
     });
 
-    it('TC002: should return "TOO_HIGH" for temperature above upper limit for MED_ACTIVE_COOLING', () => {
+    it('TC002: should return "TOO_HIGH" for temperature above upper limit for MED_ACTIVE_COOLING',
+      () => {
       expect(classifyTemperatureBreach("MED_ACTIVE_COOLING", 50)).to.equal(
         "TOO_HIGH"
       );
@@ -94,7 +96,8 @@ describe("Temperature Classification and Alert Tests", () => {
     it("TC008: should send alert to controller", () => {
       checkAndAlert("TO_CONTROLLER", { coolingType: "PASSIVE_COOLING" }, 25);
       expect(consoleLogStub.calledOnce).to.be.true; // Ensure the log was called once
-      expect(consoleLogStub.calledWith("65261, NORMAL")).to.be.true; // Check for specific log output
+      // Check for specific log output
+      expect(consoleLogStub.calledWith("65261, NORMAL")).to.be.true;
     });
 
     it("TC009: should throw an error for unknown alert targets", () => {
