@@ -20,7 +20,7 @@ function sendAlert(alertTarget, breachType) {
 // Sends the breach status to the controller.
 function sendToController(breachType) {
     const header = 0xfeed;
-    console.log(`0x${header.toString(16)}, ${breachType}`);
+    console.log(`${header}, ${breachType}`);
 }
 
 // Sends an email alert based on the breach type.
