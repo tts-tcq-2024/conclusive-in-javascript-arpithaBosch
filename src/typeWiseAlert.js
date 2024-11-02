@@ -1,5 +1,8 @@
-const { classifyTemperatureBreach } = require('./temperatureClassification');
+const { classifyTemperatureBreach, getTemperatureLimits } = require('./temperatureClassification');
+const { checkAndAlert } = require('./alertHandler');
 
 module.exports = {
     classifyTemperatureBreach,
+    checkAndAlert,
+    getTemperatureLimits,
 };
